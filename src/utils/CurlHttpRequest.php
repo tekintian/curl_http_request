@@ -68,7 +68,9 @@ class CurlHttpRequest
 	    }else{
 	       curl_setopt($curl, CURLOPT_HEADER, 0); 
 	    }
-	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); // Curl 请求有返回的值
+	   // curl_setopt($curl, CURLOPT_HTTPHEADER, array('X-FORWARDED-FOR:' . $ip, 'CLIENT-IP:' . $ip)); //伪造IP
+	    //curl_setopt($curl, CURLOPT_ENCODING, 'gzip'); // 取消gzip压缩
 	    $result = curl_exec($curl);
 	    //如果有错误，则返回错误信息
 	    if($result === FALSE ){
